@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Australian Phonics Board</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            background-color:#eddbd1ff;
+            font-family: 'Century Gothic', sans-serif;
+        }
+        .content-area {
+            width: 1400px;
+            height: 1050px;
+            background-color:#eddbd1ff;
+            margin: 0 auto; /* Center the content area */
+            position: relative;
+            color: black;
+            transform-origin: top left; /* Set transform origin for scaling */
+        }
+        .title {
+            font-size: 48px;
+            font-family: 'Century Gothic', 'Arial', sans-serif;
+            font-weight: bold;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        .subtitle {
+            font-size: 22px;
+            font-family: 'Century Gothic', 'Arial', sans-serif;
+            font-weight: lighter;
+            position: absolute;
+            top: 120px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        .footnote {
+            font-size: 13px;
+            font-family: 'Century Gothic', 'Arial', sans-serif;
+            font-weight: lighter;
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        .placeholder-image {
+            width: 400px;
+            height: 300px;
+            background-image: url('images/Mou_0_0.svg');
+            position: absolute;
+            top: 230px;
+            left: 500px; /* Centering the image: (1400 - 400) / 2 */
+        }
+        
+        .button {
+            width: 55px;
+            height: 75px; /* You might need to increase this depending on your design */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: absolute;
+            font-size: 23px;
+            font-family: 'Century Gothic', 'Arial', sans-serif;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 22px; /* Push text 10px down from the top edge */
+            box-sizing: border-box; /* Include padding in the button's total height */
+            
+        }
+        .button1 { background-color: #a5d23dff; left: 59.5px; top: 535px; }
+        .button2 { background-color: #a5d23dff; left: 121.500px; top: 535px; }
+        .button3 { background-color: #a5d23dff; left: 183.500px; top: 535px; }
+        .button4 { background-color: #a5d23dff; left: 59.5px; top: 617px; }
+        .button5 { background-color: #a5d23dff; left: 121.500px; top: 617px; }
+        .button6 { background-color: #a5d23dff; left: 183.500px; top: 617px; }
+        .button7 { background-color: #f6ce2cff; left: 259.500px; top: 535px; }
+        .button8 { background-color: #f6ce2cff; left: 321.500px; top: 535px; }
+        .button9 { background-color: #f6ce2cff; left: 383.500px; top: 617px; }
+        .button10 { background-color: #f6ce2cff; left: 259.5px; top: 617px; }
+        .button11 { background-color: #f6ce2cff; left: 321.500px; top: 617px; }
+        .button12 { background-color: #f6ce2cff; left: 383.5px; top: 535px; }
+        .button13 { background-color: #ea75b3ff; left: 459.500px; top: 535px; }
+        .button14 { background-color: #ea75b3ff; left: 521.500px; top: 535px; }
+        .button15 { background-color: #ea75b3ff; left: 583.500px; top: 535px; }
+        .button16 { background-color: #ea75b3ff; left: 459.500px; top: 617px; }
+        .button17 { background-color: #ea75b3ff; left: 521.5px; top: 617px; }
+        .button18 { background-color: #ea75b3ff; left: 583.5px; top: 617px; }
+        .button19 { background-color: #f9963eff; left: 659.5px; top: 535px; }
+        .button20 { background-color: #f9963eff; left: 721.5px; top: 535px; }
+        .button21 { background-color: #f9963eff; left: 659.5px; top: 617px; }
+        .button22 { background-color: #f9963eff; left: 721.5px; top: 617px; }
+        .button23 { background-color: #f97c80ff; left: 797.5px; top: 535px; }
+        .button24 { background-color: #f97c80ff; left: 859.500px; top: 535px; }
+        .button25 { background-color: #f97c80ff; left: 797.5px; top: 617px; }
+        .button26 { background-color: #f97c80ff; left: 859.500px; top: 617px; }
+        .button27 { background-color: #f6ce2cff; left: 935.500px; top: 535px; }
+        .button28 { background-color: #f6ce2cff; left: 997.500px; top: 535px; }
+        .button29 { background-color: #f6ce2cff; left: 935.500px; top: 617px; }
+        .button30 { background-color: #f6ce2cff; left: 997.500px; top: 617px; }
+        .button31 { background-color: #a5d23dff; left: 1073.500px; top: 535px; }
+        .button32 { background-color: #a5d23dff; left: 1135.500px; top: 535px; }
+        .button33 { background-color: #a5d23dff; left: 1073.500px; top: 617px; }
+        .button34 { background-color: #a5d23dff; left: 1135.500px; top: 617px; }
+        .button35 { background-color: #f6ce2cff; left: 1211.500px; top: 535px; }
+        .button36 { background-color: #f6ce2cff; left: 1211.500px; top: 617px; }
+        .button37 { background-color: #f9963eff; left: 1287.500px; top: 535px; }
+        .button38 { background-color: #f9963eff; left: 1287.500px; top: 617px; }
+        .button39 { background-color: #f97c80ff; left: 66.500px; top: 713.000px; }
+        .button40 { background-color: #f97c80ff; left: 128.500px; top: 713.000px; }
+        .button41 { background-color: #f97c80ff; left: 190.500px; top: 713.000px; }
+        .button42 { background-color: #a5d23dff; left: 266.500px; top: 713.000px; }
+        .button43 { background-color: #a5d23dff; left: 328.5000px; top: 713.000px; }
+        .button44 { background-color: #a5d23dff; left: 390.500px; top: 713.000px; }
+        .button45 { background-color: #f9963eff; left: 466.500px; top: 713.000px; }
+        .button46 { background-color: #f9963eff; left: 528.500px; top: 713.000px; }
+        .button47 { background-color: #f9963eff; left: 590.500px; top: 713.000px; }
+        .button48 { background-color: #ea75b3ff; left: 666.500px; top: 713.000px; }
+        .button49 { background-color: #ea75b3ff; left: 728.500px; top: 713.000px; }
+        .button50 { background-color: #f6ce2cff; left: 804.5000px; top: 713.000px; }
+        .button51 { background-color: #f6ce2cff; left: 866.500px; top: 713.000px; }
+        .button52 { background-color: #f9963eff; left: 942.500px; top: 713.000px; }
+        .button53 { background-color: #f9963eff; left: 1004.500px; top: 713.000px; }
+        .button54 { background-color: #f97c80ff; left: 1080.500px; top: 713.000px; }
+        .button55 { background-color: #f97c80ff; left: 1142.500px; top: 713.000px; }
+        .button56 { background-color: #a5d23dff; left: 1218.500px; top: 713.000px; }
+        .button57 { background-color: #a5d23dff; left: 1280.500px; top: 713.000px; }
+        .button58 { background-color: #f6ce2cff; left: 58.5px; top: 809.000px; }
+        .button59 { background-color: #f6ce2cff; left: 120.500px; top: 809.000px; }
+        .button60 { background-color: #f6ce2cff; left: 182.500px; top: 809.000px; }
+        .button61 { background-color: #f6ce2cff; left: 244.500px; top: 809.000px; }
+        .button62 { background-color: #f6ce2cff; left: 306.500px; top: 809.000px; }
+        .button63 { background-color: #f97c80ff; left: 382.500px; top: 809.000px; }
+        .button64 { background-color: #f97c80ff; left: 444.500px; top: 809.000px; }
+        .button65 { background-color: #f97c80ff; left: 506.500px; top: 809.000px; }
+        .button66 { background-color: #f97c80ff; left: 568.500px; top: 809.000px; }
+        .button67 { background-color: #f97c80ff; left: 630.500px; top: 809.000px; }
+        .button68 { background-color: #a5d23dff; left: 706.500px; top: 809.000px; }
+        .button69 { background-color: #a5d23dff; left: 768.500px; top: 809.000px; }
+        .button70 { background-color: #ea75b3ff; left: 844.500px; top: 809.000px; }
+        .button71 { background-color: #ea75b3ff; left: 906.500px; top: 809.000px; }
+        .button72 { background-color: #f97c80ff; left: 982.500px; top: 809.000px; }
+        .button73 { background-color: #f9963eff; left: 1058.500px; top: 809.000px; }
+        .button74 { background-color: #f97c80ff; left: 1134.500px; top: 809.000px; }
+        .button75 { background-color: #f9963eff; left: 1210.500px; top: 809.000px; }
+        .button76 { background-color: #f6ce2cff; left: 1286.500px; top: 809.000px; }
+        
+    .button:active {
+            border: 4px solid black; /* Adjust the thickness as needed */
+        }
+
+    .tooltip-text {
+            display: none;
+        position: absolute;
+            top: 5px; /* Adjust as needed to position correctly below the button */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 15px;
+            font-weight: lighter;
+            color: black;
+            z-index: 100;
+        }
+
+
+    .button:hover .tooltip-text {
+    display: block;
+        }
+ 
+        
+    .link-button {
+            width: 200px;
+            height: 55px;    
+            background-color: #f97c80ff; 
+            color: rgb(0, 0, 0); 
+            text-decoration: none; /* Remove underline from links */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: absolute;
+            font-size: 26px;
+            font-family: 'Century Gothic', 'Arial', sans-serif;
+            font-weight: bold;
+            text-align: center;
+            line-height: 55px; /* Vertically center the text inside the button */
+        }
+        .link-button1 {left: 59.5px; top: 80px;} 
+        .link-button2 {left: 1145.500px; top: 80px;}
+
+        .link-button-clicked {
+        border: 4px solid black; /* Adjust the border thickness and color as needed */
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="content-area" id="contentArea">
+        <div class="title">Phonics Board</div>
+        <div class="subtitle">Click on each spelling to hear the sound</div>
+        <div class="footnote">Created by Andressa Bassani, Melbourne, Australia 2024.<br>Acknowledgments to Jac Dominey and Yash Mehta for their special contribution. Image by pch.vector on Freepik.<br>Contact: ausphonicsboard@gmail.com</div>
+        <div class="placeholder-image"></div>
+        <div class="button button1" onclick="changeContent('sounds/Snd_L.m4a', 'images/Mou_L_l.svg')"
+            <span class="button-text">l</span>
+            <span class="tooltip-text">/l/</span>
+        </div>        
+        <div class="button button2" onclick="changeContent('sounds/Snd_L.m4a', 'images/Mou_L_ll.svg')"
+            <span class="button-text">ll</span>
+            <span class="tooltip-text">/l/</span>
+        </div>    
+        <div class="button button3" onclick="changeContent('sounds/Snd_L.m4a', 'images/Mou_L_le.svg')"
+            <span class="button-text">le</span>
+            <span class="tooltip-text">/l/</span>
+        </div>    
+        <div class="button button4" onclick="changeContent('sounds/Snd_L.m4a', 'images/Mou_L_el.svg')"
+            <span class="button-text">el</span>
+            <span class="tooltip-text">/l/</span>
+        </div>    
+        <div class="button button5" onclick="changeContent('sounds/Snd_L.m4a', 'images/Mou_L_al.svg')"
+            <span class="button-text">al</span>
+            <span class="tooltip-text">/l/</span>
+        </div>    
+        <div class="button button6" onclick="changeContent('sounds/Snd_L.m4a', 'images/Mou_L_il.svg')"
+            <span class="button-text">il</span>
+            <span class="tooltip-text">/l/</span>
+        </div>    
+        <div class="button button7" onclick="changeContent('sounds/Snd_S.m4a', 'images/Mou_S_s.svg')"
+            <span class="button-text">s</span>
+            <span class="tooltip-text">/s/</span>
+        </div>    
+        <div class="button button8" onclick="changeContent('sounds/Snd_S.m4a', 'images/Mou_S_ss.svg')"
+            <span class="button-text">ss</span>
+            <span class="tooltip-text">/s/</span>
+        </div>    
+        <div class="button button9" onclick="changeContent('sounds/Snd_S.m4a', 'images/Mou_S_c.svg')"
+            <span class="button-text">c</span>
+            <span class="tooltip-text">/s/</span>
+        </div>    
+        <div class="button button10" onclick="changeContent('sounds/Snd_S.m4a', 'images/Mou_S_ce.svg')"
+            <span class="button-text">ce</span>
+            <span class="tooltip-text">/s/</span>
+        </div>    
+        <div class="button button11" onclick="changeContent('sounds/Snd_S.m4a', 'images/Mou_S_se.svg')"
+            <span class="button-text">se</span>
+            <span class="tooltip-text">/s/</span>
+        </div>     
+        <div class="button button12" onclick="changeContent('sounds/Snd_S.m4a', 'images/Mou_S_sc.svg')"
+        <span class="button-text">sc</span>
+        <span class="tooltip-text">/s/</span>
+    </div>             
+        <div class="button button13" onclick="changeContent('sounds/Snd_Z.m4a', 'images/Mou_Z_z.svg')"
+        <span class="button-text">z</span>
+        <span class="tooltip-text">/z/</span>
+    </div> 
+        <div class="button button14" onclick="changeContent('sounds/Snd_Z.m4a', 'images/Mou_Z_ze.svg')"
+        <span class="button-text">ze</span>
+        <span class="tooltip-text">/z/</span>
+    </div> 
+        <div class="button button15" onclick="changeContent('sounds/Snd_Z.m4a', 'images/Mou_Z_zz.svg')"
+        <span class="button-text">zz</span>
+        <span class="tooltip-text">/z/</span>
+    </div> 
+        <div class="button button16" onclick="changeContent('sounds/Snd_Z.m4a', 'images/Mou_Z_s.svg')"
+        <span class="button-text">s</span>
+        <span class="tooltip-text">/z/</span>
+    </div> 
+        <div class="button button17" onclick="changeContent('sounds/Snd_Z.m4a', 'images/Mou_Z_se.svg')"
+        <span class="button-text">se</span>
+        <span class="tooltip-text">/z/</span>
+    </div> 
+        <div class="button button18" onclick="changeContent('sounds/Snd_Z.m4a', 'images/Mou_Z_ss.svg')"
+        <span class="button-text">ss</span>
+        <span class="tooltip-text">/z/</span>
+    </div> 
+        <div class="button button19" onclick="changeContent('sounds/Snd_R.m4a', 'images/Mou_R_r.svg')"
+        <span class="button-text">r</span>
+        <span class="tooltip-text">/r/</span>
+    </div> 
+        <div class="button button20" onclick="changeContent('sounds/Snd_R.m4a', 'images/Mou_R_wr.svg')"
+        <span class="button-text">wr</span>
+        <span class="tooltip-text">/r/</span>
+    </div> 
+        <div class="button button21" onclick="changeContent('sounds/Snd_R.m4a', 'images/Mou_R_rr.svg')"
+        <span class="button-text">rr</span>
+        <span class="tooltip-text">/r/</span>
+    </div> 
+        <div class="button button22" onclick="changeContent('sounds/Snd_R.m4a', 'images/Mou_R_rh.svg')"
+        <span class="button-text">rh</span>
+        <span class="tooltip-text">/r/</span>
+    </div> 
+        <div class="button button23" onclick="changeContent('sounds/Snd_J.m4a', 'images/Mou_J_j.svg')"
+        <span class="button-text">j</span>
+        <span class="tooltip-text">/j/</span>
+    </div> 
+        <div class="button button24" onclick="changeContent('sounds/Snd_J.m4a', 'images/Mou_J_g.svg')"
+        <span class="button-text">g</span>
+        <span class="tooltip-text">/j/</span>
+    </div> 
+        <div class="button button25" onclick="changeContent('sounds/Snd_J.m4a', 'images/Mou_J_ge.svg')"
+        <span class="button-text">ge</span>
+        <span class="tooltip-text">/j/</span>
+    </div> 
+        <div class="button button26" onclick="changeContent('sounds/Snd_J.m4a', 'images/Mou_J_dge.svg')"
+        <span class="button-text">dge</span>
+        <span class="tooltip-text">/j/</span>
+    </div> 
+        <div class="button button27" onclick="changeContent('sounds/Snd_M.m4a', 'images/Mou_M_m.svg')"
+        <span class="button-text">m</span>
+        <span class="tooltip-text">/m/</span>
+    </div> 
+        <div class="button button28" onclick="changeContent('sounds/Snd_M.m4a', 'images/Mou_M_mm.svg')"
+        <span class="button-text">mm</span>
+        <span class="tooltip-text">/m/</span>
+    </div> 
+        <div class="button button29" onclick="changeContent('sounds/Snd_M.m4a', 'images/Mou_M_mb.svg')"
+        <span class="button-text">mb</span>
+        <span class="tooltip-text">/m/</span>
+    </div> 
+        <div class="button button30" onclick="changeContent('sounds/Snd_M.m4a', 'images/Mou_M_mn.svg')"
+        <span class="button-text">mn</span>
+        <span class="tooltip-text">/m/</span>
+    </div> 
+        <div class="button button31" onclick="changeContent('sounds/Snd_F.m4a', 'images/Mou_F_f.svg')"
+        <span class="button-text">f</span>
+        <span class="tooltip-text">/f/</span>
+    </div> 
+        <div class="button button32" onclick="changeContent('sounds/Snd_F.m4a', 'images/Mou_F_ff.svg')"
+        <span class="button-text">ff</span>
+        <span class="tooltip-text">/f/</span>
+    </div> 
+        <div class="button button33" onclick="changeContent('sounds/Snd_F.m4a', 'images/Mou_F_ph.svg')"
+        <span class="button-text">ph</span>
+        <span class="tooltip-text">/f/</span>
+    </div> 
+        <div class="button button34" onclick="changeContent('sounds/Snd_F.m4a', 'images/Mou_F_gh.svg')"
+        <span class="button-text">gh</span>
+        <span class="tooltip-text">/f/</span>
+    </div> 
+        <div class="button button35" onclick="changeContent('sounds/Snd_NG.m4a', 'images/Mou_NG_n.svg')"
+        <span class="button-text">n</span>
+        <span class="tooltip-text">/ng/</span>
+    </div> 
+        <div class="button button36" onclick="changeContent('sounds/Snd_NG.m4a', 'images/Mou_NG_ng.svg')"
+        <span class="button-text">ng</span>
+        <span class="tooltip-text">/ng/</span>
+    </div> 
+        <div class="button button37" onclick="changeContent('sounds/Snd_ZH.m4a', 'images/Mou_ZH_s.svg')"
+        <span class="button-text">s</span>
+        <span class="tooltip-text">/zh/</span>
+    </div> 
+        <div class="button button38" onclick="changeContent('sounds/Snd_ZH.m4a', 'images/Mou_ZH_z.svg')"
+        <span class="button-text">z</span>
+        <span class="tooltip-text">/zh/</span>
+    </div> 
+        <div class="button button39" onclick="changeContent('sounds/Snd_G.m4a', 'images/Mou_G_g.svg')"
+        <span class="button-text">g</span>
+        <span class="tooltip-text">/g/</span>
+    </div> 
+        <div class="button button40" onclick="changeContent('sounds/Snd_G.m4a', 'images/Mou_G_gg.svg')"
+        <span class="button-text">gg</span>
+        <span class="tooltip-text">/g/</span>
+    </div> 
+        <div class="button button41" onclick="changeContent('sounds/Snd_G.m4a', 'images/Mou_G_gh.svg')"
+        <span class="button-text">gh</span>
+        <span class="tooltip-text">/g/</span>
+    </div> 
+        <div class="button button42" onclick="changeContent('sounds/Snd_T.m4a', 'images/Mou_T_t.svg')"
+        <span class="button-text">t</span>
+        <span class="tooltip-text">/t/</span>
+    </div> 
+        <div class="button button43" onclick="changeContent('sounds/Snd_T.m4a', 'images/Mou_T_tt.svg')"
+        <span class="button-text">tt</span>
+        <span class="tooltip-text">/t/</span>
+    </div> 
+        <div class="button button44" onclick="changeContent('sounds/Snd_T.m4a', 'images/Mou_T_bt.svg')"
+        <span class="button-text">bt</span>
+        <span class="tooltip-text">/t/</span>
+    </div> 
+        <div class="button button45" onclick="changeContent('sounds/Snd_D.m4a', 'images/Mou_D_d.svg')"
+        <span class="button-text">d</span>
+        <span class="tooltip-text">/d/</span>
+    </div> 
+        <div class="button button46" onclick="changeContent('sounds/Snd_D.m4a', 'images/Mou_D_dd.svg')"
+        <span class="button-text">dd</span>
+        <span class="tooltip-text">/d/</span>
+    </div> 
+        <div class="button button47" onclick="changeContent('sounds/Snd_D.m4a', 'images/Mou_D_ed.svg')"
+        <span class="button-text">ed</span>
+        <span class="tooltip-text">/d/</span>
+    </div> 
+        <div class="button button48" onclick="changeContent('sounds/Snd_B.m4a', 'images/Mou_B_b.svg')"
+        <span class="button-text">b</span>
+        <span class="tooltip-text">/b/</span>
+    </div> 
+        <div class="button button49" onclick="changeContent('sounds/Snd_B.m4a', 'images/Mou_B_bb.svg')"
+        <span class="button-text">bb</span>
+        <span class="tooltip-text">/b/</span>
+    </div> 
+        <div class="button button50" onclick="changeContent('sounds/Snd_SH.m4a', 'images/Mou_SH_sh.svg')"
+        <span class="button-text">sh</span>
+        <span class="tooltip-text">/sh/</span>
+    </div> 
+        <div class="button button51" onclick="changeContent('sounds/Snd_SH.m4a', 'images/Mou_SH_ch.svg')"
+        <span class="button-text">sh</span>
+        <span class="tooltip-text">/ch/</span>
+    </div> 
+        <div class="button button52" onclick="changeContent('sounds/Snd_P.m4a', 'images/Mou_P_p.svg')"
+        <span class="button-text">p</span>
+        <span class="tooltip-text">/p/</span>
+    </div> 
+        <div class="button button53" onclick="changeContent('sounds/Snd_P.m4a', 'images/Mou_P_pp.svg')"
+        <span class="button-text">pp</span>
+        <span class="tooltip-text">/p/</span>
+    </div> 
+        <div class="button button54" onclick="changeContent('sounds/Snd_V.m4a', 'images/Mou_V_v.svg')"
+        <span class="button-text">v</span>
+        <span class="tooltip-text">/v/</span>
+    </div> 
+        <div class="button button55" onclick="changeContent('sounds/Snd_V.m4a', 'images/Mou_V_ve.svg')"
+        <span class="button-text">ve</span>
+        <span class="tooltip-text">/v/</span>
+    </div> 
+        <div class="button button56" onclick="changeContent('sounds/Snd_CH.m4a', 'images/Mou_CH_ch.svg')"
+        <span class="button-text">ch</span>
+        <span class="tooltip-text">/ch/</span>
+    </div> 
+        <div class="button button57" onclick="changeContent('sounds/Snd_CH.m4a', 'images/Mou_CH_tch.svg')"
+        <span class="button-text">tch</span>
+        <span class="tooltip-text">/ch/</span>
+    </div> 
+        <div class="button button58" onclick="changeContent('sounds/Snd_K.m4a', 'images/Mou_K_c.svg')"
+        <span class="button-text">c</span>
+        <span class="tooltip-text">/k/</span>
+    </div> 
+        <div class="button button59" onclick="changeContent('sounds/Snd_K.m4a', 'images/Mou_K_k.svg')"
+        <span class="button-text">k</span>
+        <span class="tooltip-text">/k/</span>
+    </div> 
+        <div class="button button60" onclick="changeContent('sounds/Snd_K.m4a', 'images/Mou_K_ck.svg')"
+        <span class="button-text">ck</span>
+        <span class="tooltip-text">/k/</span>
+    </div> 
+        <div class="button button61" onclick="changeContent('sounds/Snd_K.m4a', 'images/Mou_K_ch.svg')"
+        <span class="button-text">ch</span>
+        <span class="tooltip-text">/k/</span>
+    </div> 
+        <div class="button button62" onclick="changeContent('sounds/Snd_K.m4a', 'images/Mou_K_cc.svg')"
+        <span class="button-text">cc</span>
+        <span class="tooltip-text">/k/</span>
+    </div> 
+        <div class="button button63" onclick="changeContent('sounds/Snd_N.m4a', 'images/Mou_N_n.svg')"
+        <span class="button-text">n</span>
+        <span class="tooltip-text">/n/</span>
+    </div> 
+        <div class="button button64" onclick="changeContent('sounds/Snd_N.m4a', 'images/Mou_N_nn.svg')"
+        <span class="button-text">nn</span>
+        <span class="tooltip-text">/n/</span>
+    </div> 
+        <div class="button button65" onclick="changeContent('sounds/Snd_N.m4a', 'images/Mou_N_kn.svg')"
+        <span class="button-text">kn</span>
+        <span class="tooltip-text">/n/</span>
+    </div> 
+        <div class="button button66" onclick="changeContent('sounds/Snd_N.m4a', 'images/Mou_N_gn.svg')"
+        <span class="button-text">gn</span>
+        <span class="tooltip-text">/n/</span>
+    </div> 
+        <div class="button button67" onclick="changeContent('sounds/Snd_N.m4a', 'images/Mou_N_ne.svg')"
+        <span class="button-text">ne</span>
+        <span class="tooltip-text">/n/</span>
+    </div> 
+        <div class="button button68" onclick="changeContent('sounds/Snd_H.m4a', 'images/Mou_H_h.svg')"
+        <span class="button-text">h</span>
+        <span class="tooltip-text">/h/</span>
+    </div> 
+        <div class="button button69" onclick="changeContent('sounds/Snd_H.m4a', 'images/Mou_H_wh.svg')"
+        <span class="button-text">wh</span>
+        <span class="tooltip-text">/h/</span>
+    </div> 
+        <div class="button button70" onclick="changeContent('sounds/Snd_W.m4a', 'images/Mou_W_w.svg')"
+        <span class="button-text">w</span>
+        <span class="tooltip-text">/w/</span>
+    </div> 
+        <div class="button button71" onclick="changeContent('sounds/Snd_W.m4a', 'images/Mou_W_wh.svg')"
+        <span class="button-text">wh</span>
+        <span class="tooltip-text">/w/</span>
+    </div> 
+        <div class="button button72" onclick="changeContent('sounds/Snd_TF.m4a', 'images/Mou_TF_th.svg')"
+        <span class="button-text">th</span>
+        <span class="tooltip-text">/th/</span>
+    </div> 
+        <div class="button button73" onclick="changeContent('sounds/Snd_TH.m4a', 'images/Mou_TH_th.svg')"
+        <span class="button-text">th</span>
+        <span class="tooltip-text">/th/</span>
+    </div> 
+        <div class="button button74" onclick="changeContent('sounds/Snd_KS.m4a', 'images/Mou_KS_x.svg')"
+        <span class="button-text">x</span>
+        <span class="tooltip-text">/ks/</span>
+    </div> 
+        <div class="button button75" onclick="changeContent('sounds/Snd_GZ.m4a', 'images/Mou_GZ_x.svg')"
+        <span class="button-text">x</span>
+        <span class="tooltip-text">/gz/</span>
+    </div> 
+        <div class="button button76" onclick="changeContent('sounds/Snd_Y.m4a', 'images/Mou_Y_y.svg')"
+        <span class="button-text">y</span>
+        <span class="tooltip-text">/y/</span>
+    </div> 
+
+        <a href="index.html" class="link-button link-button1" target="_self">Vowels</a>
+        <a href="consonants.html" class="link-button link-button2" target="_self">Consonants</a>
+          
+    </div>    
+
+    <script>
+        var currentAudio = null; // Variable to hold the currently playing audio
+    
+        function scaleContentArea() {
+            const contentArea = document.getElementById('contentArea');
+            const scaleX = window.innerWidth / 1400;
+            const scaleY = window.innerHeight / 1050;
+            const scale = Math.min(scaleX, scaleY);
+            contentArea.style.transform = `scale(${scale})`;
+    
+            // Center the content area horizontally after scaling
+            const margin = (window.innerWidth - (1400 * scale)) / 2;
+            contentArea.style.marginLeft = margin + 'px';
+        }
+    
+        window.addEventListener('load', scaleContentArea);
+        window.addEventListener('resize', scaleContentArea);
+    
+        function changeContent(soundFile, imagePath) {
+            // Stop currently playing audio and reset
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+    
+            // Create a new Audio object and play it
+            currentAudio = new Audio(soundFile);
+            currentAudio.play();
+    
+            // Update the image
+            document.querySelector('.placeholder-image').style.backgroundImage = `url('${imagePath}')`;
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const button1 = document.querySelector('.link-button1');
+            const button2 = document.querySelector('.link-button2');
+    
+            // Initial state - button 2 active
+            button2.style.backgroundColor = '#f97c80ff';
+            button2.classList.add('link-button-clicked'); // Add border
+            button1.style.backgroundColor = '#ffbabaff';
+    
+            // Click event for button 1
+            button1.addEventListener('click', function() {
+                button1.style.backgroundColor = '#f97c80ff';
+                button1.classList.add('link-button-clicked'); // Add border to button 1
+                button2.style.backgroundColor = '#ffbabaff';
+                button2.classList.remove('link-button-clicked'); // Remove border from button 2
+            });
+    
+            // Click event for button 2
+            button2.addEventListener('click', function() {
+                button2.style.backgroundColor = '#f97c80ff';
+                button2.classList.add('link-button-clicked'); // Add border to button 2
+                button1.style.backgroundColor = '#ffbabaff';
+                button1.classList.remove('link-button-clicked'); // Remove border from button 1
+            });
+        });
+    </script>
+    
+
+
+</body>
+</html>
